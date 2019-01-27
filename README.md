@@ -1,4 +1,20 @@
-# ctf
+# ctf-docker
+
+This is a friendly fork of Thomas' [ctf-vagrant](https://github.com/tkk2112/ctf-vagrant), based on the Ubuntu 18.04 base image.
+
+## Usage:
+
+Change to the `docker` directory, then:
+
+*Build the image*
+```
+$ ./build
+```
+
+*Connect to the vm*
+```
+$ ./run
+```
 
 ## Tools/setup from:
 ### [EpicTreasure](https://github.com/ctfhacker/EpicTreasure)
@@ -65,7 +81,6 @@
 | steganography | [Pngtools](http://www.stillhq.com/pngtools/) | For various analysis related to PNGs |
 | steganography | [Stegbreak](https://linux.die.net/man/1/stegbreak) | Launches brute-force dictionary attacks on JPG image |
 | steganography | [Steghide](http://steghide.sourceforge.net/) | Hide data in various kind of images |
-| web | [W3af](https://github.com/andresriancho/w3af) | Web Application Attack and Audit Framework. |
 | web | [XSSer](http://xsser.sourceforge.net/) | Automated XSS testor |
 
 ### Other

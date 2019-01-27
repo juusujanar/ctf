@@ -1,11 +1,23 @@
-FROM ubuntu:16.04
+FROM ubuntu:18.04
 
-MAINTAINER Maintainer Thomas Kristensen
-LABEL Description="ctf image" Version="0.2"
+LABEL Maintainer="Karl Trygve Kalleberg" Description="ctf-docker image" Version="2019.1"
 
-COPY setup.sh /root/setup.sh
-RUN chmod +x /root/setup.sh
-RUN cd /root && ./setup.sh /root
+# Set up the image so that apt-get works as expected (package list is updated,
+# apt-utils is installed to avoid the 'debconf: delaying package configuration,
+# since apt-utils is not installed' error messages, etc).
+
+RUN apt-get update \
+  && apt-get install -y --no-install-recommends apt-utils \
+  && apt-get upgrade -y -o Dpkg::Options::="--force-confold"
+
+RUN apt-get install -y sudo locales
+RUN dpkg-reconfigure -u apt-utils
+
+COPY setup.sh /tmp/setup.sh
+RUN chmod a+x /tmp/setup.sh
+RUN adduser ubuntu --gecos ",,,," --disabled-password
+RUN echo "ubuntu ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
+RUN cd /home/ubuntu && sudo -iHu ubuntu /tmp/setup.sh
 
 # Install decompile
 COPY decompile /usr/bin/decompile
