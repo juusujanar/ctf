@@ -1,6 +1,6 @@
 # ctf-docker
 
-This is a friendly fork of Thomas' [ctf-vagrant](https://github.com/tkk2112/ctf-vagrant), based on the Ubuntu 18.04 base image.
+This is a friendly fork of Karl's [ctf-docker](https://github.com/karltk/ctf) and Thomas' [ctf-vagrant](https://github.com/tkk2112/ctf-vagrant), based on the Ubuntu 18.04 base image.
 
 ## Usage:
 

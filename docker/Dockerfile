@@ -1,6 +1,6 @@
 FROM ubuntu:18.04
 
-LABEL Maintainer="Karl Trygve Kalleberg" Description="ctf-docker image" Version="2019.1"
+LABEL Maintainer="Janar Juusu" Description="ctf-docker image" Version="2020.1"
 
 # Set up the image so that apt-get works as expected (package list is updated,
 # apt-utils is installed to avoid the 'debconf: delaying package configuration,

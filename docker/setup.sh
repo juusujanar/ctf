@@ -46,12 +46,9 @@ sudo apt-get install -y \
     libssl-dev \
     libncurses5-dev \
     libncursesw5-dev \
-    python-dev \
-    python-dev \
-    python-pip \
+    python3-dev \
     python3-pip \
-    python2.7 \
-    python3.6 \
+    python3 \
     tmux \
     tree \
     virtualenvwrapper \
@@ -110,9 +107,9 @@ git clone https://github.com/pwndbg/pwndbg
 cd pwndbg
 ./setup.sh
 
-pip install --user --upgrade ipython
-pip install --user --upgrade angr
-pip install --user --upgrade pwntools
+pip3 install --user --upgrade ipython
+pip3 install --user --upgrade angr
+pip3 install --user --upgrade pwntools
 
 # Install radare2
 cd $HOME/tools \
@@ -181,8 +178,8 @@ sudo apt-get install -y libc6:i386 libncurses5:i386 libstdc++6:i386 libc6-dev-i3
 # Install apktool
 sudo apt install -y default-jre \
     && wget https://raw.githubusercontent.com/iBotPeaches/Apktool/master/scripts/linux/apktool \
-    && wget https://bitbucket.org/iBotPeaches/apktool/downloads/apktool_2.0.2.jar \
-    && sudo mv apktool_2.0.2.jar /bin/apktool.jar \
+    && wget https://bitbucket.org/iBotPeaches/apktool/downloads/apktool_2.4.1.jar \
+    && sudo mv apktool_2.4.1.jar /bin/apktool.jar \
     && sudo mv apktool /bin/ \
     && sudo chmod 755 /bin/apktool \
     && sudo chmod 755 /bin/apktool.jar
@@ -224,17 +221,18 @@ for x in subbrute sqlmap dirsearch dirb commix burpsuite exetractor pdf-parser p
 done
 
 # Install XSSer
+sudo apt install python3-pycurl python3-bs4 python3-geoip python3-gi python3-cairocffi python3-selenium firefoxdriver
 pip3 install --upgrade pycurl BeautifulSoup
 cd $HOME/tools \
-    && wget https://xsser.03c8.net/xsser/xsser_1.7-1_amd64.deb \
-    && sudo dpkg -i xsser_1.7-1_amd64.deb \
+    && wget https://xsser.03c8.net/xsser/xsser_1.8.3_all.deb \
+    && sudo dpkg -i xsser_1.8.3_all.deb \
     && rm -rf xsser*
 
 # Install uncompyle2
-cd $HOME/tools \
-    && git clone https://github.com/wibiti/uncompyle2.git \
-    && cd uncompyle2 \
-    && python setup.py install --user
+# cd $HOME/tools \
+#     && git clone https://github.com/wibiti/uncompyle2.git \
+#     && cd uncompyle2 \
+#     && python3 setup.py install --user
 
 pip3 install --user --upgrade gmpy
 pip3 install --user --upgrade gmpy2
